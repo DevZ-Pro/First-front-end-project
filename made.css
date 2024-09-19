@@ -1,0 +1,331 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+html {
+   font-family: 'Dosis',sans-serif;
+}
+body {
+    overflow: hidden;
+}
+/* ========================
+      breakpoints
+   ======================== */ 
+.outer-grid {
+    display: grid;
+    height: 100vh;
+    background-color: rgb(139, 138, 136);
+    grid-template-rows:70px 1fr ;
+    grid-template-columns: 90px 1fr;
+    grid-template-areas: 
+              "the-header  the-header"
+              "the-inner-grid the-inner-grid ";
+}
+.outer-grid-with {
+    grid-template-areas: 
+    "the-header  the-header"
+    "the-nav the-inner-grid ";
+}
+.hide-nav {
+    display: none;
+}
+.hed {
+    grid-area: the-header;
+    background-color:rgb(254, 255, 255);
+}
+nav {
+    grid-area: the-nav;
+    background-color:rgb(186, 192, 188);
+}
+.inner-grid {
+    grid-area: the-inner-grid;
+    background-color: rgb(126, 194, 225);
+}
+.cc {
+    color: rgb(0, 0, 0);
+}
+/* ========================
+      inner grid details
+   ======================== */ 
+.inner-grid {
+    overflow-y: scroll;
+    display: grid;
+    grid-area: the-inner-grid;
+    background-color: rgb(218, 213, 204);
+    grid-template-rows: 1fr auto 60px;
+    grid-template-columns: 1fr;
+    grid-template-areas: 
+    "the-inner-main"
+    "the-inner-aside"
+    "the-inner-footer";
+   }
+main {
+    grid-area: the-inner-main;
+    background-color: rgb(218, 213, 204);
+    height: auto;
+}
+aside {
+    grid-area: the-inner-aside;
+    background-color: rgb(49, 47, 45);
+    height:auto;
+    padding: 50px;
+    margin: 20px;
+    border-radius: 10px;
+    color: aliceblue;
+}
+footer {
+    grid-area: the-inner-footer;
+    background-color: rgb(240, 209, 151);
+}
+/* ========================
+      header flexbox
+   ======================== */ 
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    /*  padding:(top bottom) (left right); */
+}
+.left-header {
+    display: flex;
+    align-items: center;
+}
+.fa-bars {
+    margin-right: 20px;
+    border:0;
+    padding: 5px;
+    border-radius: 4px;
+    box-shadow: 1px 1px 2px 1px;
+}
+.fa-bars:hover {
+    cursor: pointer; 
+    color: rgb(120, 51, 5);
+}
+.right-header {
+    display: flex;
+    flex-direction: row;
+}
+.header-link {
+    margin: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.logo {
+    color: rgb(0, 0, 0);
+}
+a {
+    text-decoration: none;
+    color: rgb(179, 67, 7);
+}
+.header-link:hover {
+    cursor: pointer;
+    opacity: 1;
+    color: rgb(160, 61, 8);
+    transform: scale(0.9);
+}
+/* ---------------------------------- */
+.nav-link {
+    margin: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+}
+.nav-link:hover {
+    cursor: pointer;
+    opacity: 1;
+    color:rgb(144, 52, 3);
+    transform: scale(0.9);
+}
+
+
+
+   /* ========================
+      images
+   ======================== */ 
+.imgss {
+    width: 250px;
+    height: 195px;
+}
+img {
+    max-width: 100%;
+    border-radius: 5px;
+    box-shadow: 1px 1px 4px 1px rgb(59, 58, 58);
+}
+.mountain {
+    /* align-self: center; */
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+.sector8 {
+    margin-bottom: 20px;
+}
+/* #coffee-3 .imgss {
+    width: 250px;
+    height: 195px;
+    border-radius: 5px;
+    box-shadow: 1px 1px 4px 1px rgb(115, 114, 114);
+} */
+ /* .top-img  {
+    display: flex;
+    flex-direction: column;
+    margin:20px;
+    margin-bottom: 0;
+    row-gap: 10px;
+    align-items: center;
+} */
+ 
+/* -------------------------------------
+             collage
+------------------------------------- */
+.collage-main {
+    margin: 20px;
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr 40px 1fr 40px 1fr;
+    height: 500px;
+    align-items: center;
+}
+.collage-1 {
+    grid-column-start:1 ;
+    grid-column-end:3 ;
+    /* height: 340px ; */
+    width: 218px;
+    z-index: 1;
+    transform: rotate(-3deg);
+    box-shadow: 1px 1px 15px 8px rgb(59, 58, 58);
+}
+.collage-2 {
+    width: 260px;
+    grid-column-start:2 ;
+    grid-column-end:5 ;
+    z-index: 2;
+}
+.collage-3 {
+    grid-column-start:4 ;
+    grid-column-end:6 ;
+    /* height: 340px ;
+    width: 218px; */
+    z-index: 1;
+    transform: rotate(+3deg);
+    box-shadow: 1px 1px 15px 8px rgb(59, 58, 58);
+}
+/* by default it stack on top of each other so 
+( .collage-main * )  this means collage-main and its children container */
+.collage-main * {
+    grid-row-start: 1;
+    grid-row-end: 2;
+}
+.special{
+    margin-bottom:30px ;
+}
+img:hover {
+    transform: scale(0.995);
+}
+
+.bot-img {
+    display: flex;
+    flex-direction: column;
+    margin:10px;
+    align-items: center;
+    
+}
+
+.footer {
+    color: #d4af37;
+    text-decoration: none;
+    background-color: rgb(74, 65, 45);
+    text-align: center;
+    font-size: 0.8rem;
+}
+.nnn {
+    color: aliceblue;
+}
+.fff {
+    color: #d4af37;
+}
+.footer-data {
+    margin-top: 12px;
+}
+/* -------------------------------------------- */
+.about-us, .featured-products, .testimonials {
+    padding: 50px;
+    background-color: white;
+    margin: 20px;
+    border-radius: 10px;
+}
+ .featured-products {
+    padding: 50px;
+    background-image:url(steaming+cup+of+coffee+with+spilt+coffee+beans.jpg);
+    background-size: cover;
+    background-position: center;
+    opacity: 80;
+    margin: 20px;
+    border-radius: 10px;
+    color: aliceblue;
+}
+
+h2 {
+    color: #d4af37;
+}
+
+.product {
+    margin: 20px 0;
+}
+
+.aside-last {
+    color: #d4af37;
+}
+/* ========================
+      breakpoints
+   ======================== */ 
+   @media (min-width:576px) {
+    .nav {
+        display: block !important;
+    }
+    .outer-grid {
+        grid-template-areas: 
+        "the-header  the-header"
+        "the-nav the-inner-grid ";
+    }
+    .fa-bars {
+        display: none !important; 
+    }
+}
+@media (min-width:650px) {
+    .img-box {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .top-img  {
+        display: flex;
+        flex-direction: row;
+        margin:20px;
+        margin-bottom: 0;
+        row-gap: 10px;
+        column-gap: 10px;
+        align-items: center;
+    }
+}
+@media (min-width:992px) {
+
+    .inner-grid {
+    grid-template-rows: 1fr 60px;
+    grid-template-columns: minmax(auto,900px) 1fr;
+    grid-template-areas: 
+    "the-inner-main the-inner-aside"
+    "the-inner-footer the-inner-footer";
+    }
+    aside {
+        height: auto;
+    }
+}
+@media (min-width:1440px) {
+    
+}
